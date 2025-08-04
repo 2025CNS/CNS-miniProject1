@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http;//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <h1>HELLO SPRING BOOT</h1>
+    <a href="/member/save">회원가입</a>
+    <a href="/member/login">로그인</a>
+    <a href="/member/contact">문의하기</a>
+    <p th:text="${session.loginEmail}"></p>
+</body>
+</html>

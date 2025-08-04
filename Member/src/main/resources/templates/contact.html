@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>문의하기</title>
+</head>
+<body>
+<h1>문의사항 작성</h1>
+<form th:action="@{/member/contact}" th:object="${contact}" method="post">
+  이름: <input type="text" th:field="*{name}" /><br/>
+  이메일: <input type="email" th:field="*{email}" /><br/>
+  문의내용: <textarea th:field="*{message}"></textarea><br/>
+  <button type="submit">보내기</button>
+</form>
+
+<div th:if="${param.success}">
+  <p>문의가 성공적으로 접수되었습니다.</p>
+</div>
+</body>
+</html>
