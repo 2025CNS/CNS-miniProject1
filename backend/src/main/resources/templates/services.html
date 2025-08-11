@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNS - Creative Nurture Strive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(180deg, #ababab 10%, #87b7ff 30%, #c1c5ff 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            margin-bottom: 2rem;
+        }
+
+        .title-line {
+            display: block;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title-line.creative {
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .title-line.nurture {
+            animation: slideInRight 1s ease-out 0.4s both;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .title-line.strive {
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .hero-subtitle {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .korean-text {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .english-text {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Section Styles */
+        .ida-intro {
+            padding: 5rem 0;
+            background: transparent;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .title-prefix {
+            display: block;
+            font-size: 1.5rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-main {
+            color: #4f46e5;
+            font-size: 3.5rem;
+            font-weight: 900;
+        }
+
+        .title-main.blue {
+            color: #4f46e5;
+        }
+
+        .title-suffix {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .blue {
+            color: #4f46e5;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Image Placeholder Styles */
+        .laptop-mockup {
+            position: relative;
+            /*width: 100%;*/
+            /*height: 100%;*/
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-placeholder:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Features Section */
+        .ida-features {
+            padding: 5rem 0;
+            background: transparent;
+        }
+
+        .features-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .features-list {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-bullet {
+            color: #4f46e5;
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 0.1rem;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .feature-text strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: transparent;
+        }
+
+        .cta-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .final-cta {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .final-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll animations */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .intro-content,
+            .features-content,
+            .cta-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .laptop-mockup {
+                max-width: 350px;
+                /*height: 100%;*/
+            }
+
+            .image-placeholder {
+                height: 200px;
+                font-size: 0.9rem;
+            }
+
+            .title-line {
+                font-size: clamp(2rem, 6vw, 4rem);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .title-main {
+                font-size: 2.5rem;
+            }
+
+            .final-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .korean-text {
+                font-size: 1.2rem;
+            }
+
+            .english-text {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img th:src="@{/images/cns.png}" alt="CNS 로고" class="logo-image">
+        </div>
+        <nav class="nav">
+            <a th:href="@{/}" class="nav-item"><svg class="home-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg></a>
+            <a th:href="@{/services}" class="nav-link">서비스</a>
+            <a th:href="@{/posts}" class="nav-link">문의</a>
+            <a th:href="@{/login}" class="nav-link">로그인</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="title-line creative">Creative</span>
+            <span class="title-line nurture">Nurture</span>
+            <span class="title-line strive">Strive</span>
+        </h1>
+        <div class="hero-subtitle">
+            <p class="korean-text">"창의력을 키우고, 노력하며 나아갈 때, 우리는 성장한다."</p>
+            <p class="english-text">"By nurturing creativity and striving forward, we grow."</p>
+        </div>
+    </div>
+</section>
+
+<!-- IDA Introduction Section -->
+<section id="services" class="ida-intro">
+    <div class="container">
+        <div class="intro-content">
+            <div class="intro-text">
+                <h2 class="section-title">
+                    <span class="title-prefix">신입생을 위한 선물,</span>
+                    <span class="title-main">IDA</span>
+                    <span class="title-suffix">는</span>
+                </h2>
+                <p class="section-description">
+                    "학생"들이 직접 개발한 입학원서 사이트입니다.
+                </p>
+            </div>
+            <div class="intro-laptop">
+                <div class="laptop-mockup">
+                    <img th:src="@{/images/a.png}" alt="" class="wimg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IDA Features Section -->
+<section class="ida-features">
+    <div class="container">
+        <div class="features-content">
+            <div class="features-text">
+                <h2 class="section-title">
+                    <span class="title-main blue">IDA</span>
+                    <span class="title-suffix">는?</span>
+                </h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-bullet">•</div>
+                        <div class="feature-text">
+                            <strong>간편한 원서 작성</strong> · 직관적인 UI로 손쉬운 원서 작성
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet">•</div>
+                        <div class="feature-text">
+                            <strong>실시간 접수 현황</strong> · 내 원서의 진행 상황을 한눈에
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet">•</div>
+                        <div class="feature-text">
+                            <strong>맞춤형 입시 정보</strong> · 개인에게 최적화된 입시 정보 제공
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="features-laptop">
+                <div class="laptop-mockup">
+
+                    <img th:src="@{/images/h.png}" class="wimg">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <div class="cta-laptop">
+                <div class="laptop-mockup">
+                    <img th:src="@{/images/b.png}" class="wimg">
+                </div>
+            </div>
+            <div class="cta-text">
+                <h2 class="section-title">
+                    <span class="title-prefix">입학의 첫걸음,</span>
+                    <br>
+                    <span class="title-main blue">IDA</span>
+                    <span class="title-suffix">에서 시작하세요</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="final-cta">
+            <h2 class="final-title">
+                당신의 '첫걸음'을 함께할 서비스
+                <br>
+                <span class="blue">IDA</span>
+            </h2>
+            <p class="final-description">
+                꿈을 향한 여정, <span class="blue bold">IDA</span>가 든든한 동반자가 되어드리겠습니다. 지금 바로 <span class="blue bold">IDA</span>와 함께 입학의 첫걸음하세요.
+            </p>
+            <button class="cta-button" id="cta-button"><a href="https://dgsw.vercel.app/">지금 바로 원서 접수하기</a></button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="footer-text">대표번호 : 070-0000-0000</p>
+                <p class="footer-text">Copyright 2024. CNS Care N Service All rights reserved.</p>
+            </div>
+            <div class="footer-logo">
+                <img th:src="@{/images/cns.png}" alt="CNS 로고" class="footer-logo-image">
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

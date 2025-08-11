@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNS - 로그인</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img th:src="@{/images/cns.png}" alt="CNS 로고" class="logo-image">
+            </div>
+            <nav class="nav">
+                <a th:href="@{/}" class="nav-item">
+                    <svg class="home-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </a>
+                <a th:href="@{/services}" class="nav-link">서비스</a>
+                <a th:href="@{/posts}" class="nav-link">문의</a>
+                <a th:href="@{/login}" class="nav-link active">로그인</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Login Form -->
+            <div id="login-form" class="form-container active">
+                <div class="form-card">
+                    <h2 class="form-title">로그인</h2>
+                    <form class="form">
+                        <div class="input-group">
+                            <label for="login-id" class="input-label">아이디</label>
+                            <input type="text" id="login-id" class="input-field" placeholder="아이디를 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <label for="login-password" class="input-label">비밀번호</label>
+                            <input type="password" id="login-password" class="input-field" placeholder="비밀번호를 입력해주세요">
+                        </div>
+                        <button type="submit" class="submit-btn">로그인</button>
+                    </form>
+                    <div class="form-links">
+                        <a href="#" class="link" id="go-to-signup">회원가입</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div id="signup-form" class="form-container">
+                <div class="form-card">
+                    <h2 class="form-title">회원가입</h2>
+                    <form class="form">
+                        <div class="input-group">
+                            <label for="signup-id" class="input-label">아이디</label>
+                            <input type="text" id="signup-id" class="input-field" placeholder="아이디를 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <label for="signup-password" class="input-label">비밀번호</label>
+                            <input type="password" id="signup-password" class="input-field" placeholder="비밀번호를 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <label for="signup-email" class="input-label">이메일</label>
+                            <input type="email" id="signup-email" class="input-field" placeholder="이메일을 입력해주세요">
+                        </div>
+                        <button type="submit" class="submit-btn">회원가입</button>
+                    </form>
+                    <div class="form-links">
+                        <span class="text">이미 계정이 있으신가요?</span>
+                        <a href="#" class="link" id="go-to-login">로그인</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="footer-text">대표번호 : 070-0000-0000</p>
+                    <p class="footer-text">Copyright 2024. CNS Care N Service All rights reserved.</p>
+                </div>
+                <div class="footer-logo">
+                    <img th:src="@{/images/cns.png}" alt="CNS 로고" class="footer-logo-image">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

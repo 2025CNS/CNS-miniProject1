@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNS - 문의 게시판</title>
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+    <style>
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .post-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .post-table thead {
+            background-color: #4285f4;
+            color: #fff;
+        }
+
+        .post-table th,
+        .post-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .post-table td:nth-child(2) {
+            text-align: left;
+        }
+
+        .post-table a {
+            color: #4285f4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .post-table a:hover {
+            text-decoration: underline;
+        }
+
+        .post-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .post-table tbody tr:hover {
+            background-color: #f1f7ff;
+            transition: 0.2s;
+        }
+
+        .add-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #4285f4;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .add-btn:hover {
+            background-color: #2c6adf;
+        }
+
+        .add-icon a {
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img th:src="@{/images/cns.png}" alt="cns">
+        </div>
+        <nav class="nav">
+            <a th:href="@{/}" class="nav-item">
+                <svg class="home-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a th:href="@{/services}" class="nav-item">서비스</a>
+            <a th:href="@{/posts}" class="nav-item">문의</a>
+            <a th:href="@{/login}" class="nav-item">로그인</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-subtitle">문의 게시판</h1>
+        <p class="hero-subtitle">자주 묻는 질문을 확인하거나, 새로운 문의를 남겨주세요.</p>
+    </div>
+</section>
+
+<main class="main-content">
+    <div class="container">
+        <section class="faq-section">
+            <h2 class="section-title">자주 묻는 질문 (FAQ)</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span class="question-icon">?</span>
+                        <span class="question-text">Q. cns는 어떤 동아리인가요?</span>
+                        <span class="expand-icon">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <span class="answer-icon">i</span>
+                            <p>A. CNS는 Care N Service의 줄임말로, 고객의 편의와 서비스 향상을 위해 노력하는 조직입니다. 다양한 분야에서 전문적인 서비스를 제공하며, 고객 만족을 최우선으로 합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span class="question-icon">?</span>
+                        <span class="question-text">Q. cns는 언제 창설되었나요?</span>
+                        <span class="expand-icon">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <span class="answer-icon">i</span>
+                            <p>A. CNS는 2020년에 창설되어 지금까지 지속적으로 성장하며 고객들에게 신뢰받는 서비스를 제공하고 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span class="question-icon">?</span>
+                        <span class="question-text">Q. 스터디에서는 무엇을 하나요?</span>
+                        <span class="expand-icon">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <span class="answer-icon">i</span>
+                            <p>A. 전문가 후배들에게 전공 과목을 가르쳐 줍니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span class="question-icon">?</span>
+                        <span class="question-text">Q. 개별 실력이 부족해도 들어갈 수 있나요?</span>
+                        <span class="expand-icon">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <span class="answer-icon">i</span>
+                            <p>A. 네, 개별 실력보다는 배우고자 하는 의지와 열정이 더 중요합니다. 함께 성장할 수 있는 환경을 제공합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span class="question-icon">?</span>
+                        <span class="question-text">Q. 회비나 기타 비용이 있나요?</span>
+                        <span class="expand-icon">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <span class="answer-icon">i</span>
+                            <p>A. 기본적인 활동에는 별도의 회비가 없으며, 필요한 경우에만 최소한의 비용이 발생할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="inquiry-section" id="inquiry-section">
+                <h2 class="section-title">문의</h2>
+
+                <div class="table-container">
+                    <table class="post-table">
+                        <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="post : ${posts}">
+                            <td th:text="${post.id}"></td>
+                            <td>
+                                <a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}"></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button type="button" class="add-btn" id="addFieldBtn">
+                    <span class="add-icon"><a th:href="@{/post}">+</a></span>
+                </button>
+            </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="footer-text">대표번호 : 070-0000-0000</p>
+                <p class="footer-text">Copyright 2024. CNS Care N Service All rights reserved.</p>
+            </div>
+            <div class="footer-logo">
+                <img th:src="@{/images/cns.png}" alt="CNS 로고" class="footer-logo-image">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 스크립트: FAQ 토글(애니메이션 포함) 및 postForm 안전 처리 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // ===== FAQ 아코디언 동작 =====
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const questionBtn = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const expandIcon = item.querySelector('.expand-icon');
+
+            if (!questionBtn || !answer) return;
+
+            // 접근성 속성 초기화
+            questionBtn.setAttribute('aria-expanded', 'false');
+            answer.setAttribute('aria-hidden', 'true');
+
+            // 측정을 위해 원래 display가 none인지 체크하고 필요시 보이게 설정
+            const computed = window.getComputedStyle(answer);
+            if (computed.display === 'none') {
+                answer.style.display = 'block';
+                answer.dataset._wasDisplayNone = 'true'; // 나중에 닫을 때 원래대로 숨기기 위함
+            }
+
+            // 슬라이드 애니메이션을 위해 style 초기화
+            answer.style.overflow = 'hidden';
+            answer.style.maxHeight = '0px';
+            answer.style.transition = 'max-height 300ms ease';
+
+            // 클릭(또는 키보드)으로 열고 닫기
+            questionBtn.addEventListener('click', function () {
+                const isOpen = questionBtn.getAttribute('aria-expanded') === 'true';
+
+                if (isOpen) {
+                    // 닫기
+                    answer.style.maxHeight = '0px';
+                    questionBtn.setAttribute('aria-expanded', 'false');
+                    answer.setAttribute('aria-hidden', 'true');
+                    if (expandIcon) expandIcon.textContent = '⌄';
+                } else {
+                    // 열기 — display가 none으로 숨겨져 있던 경우 다시 보이게 설정
+                    if (answer.dataset._wasDisplayNone === 'true') {
+                        answer.style.display = 'block';
+                    }
+                    // 콘텐츠 높이에 맞춰서 열기
+                    const scroll = answer.scrollHeight;
+                    answer.style.maxHeight = scroll + 'px';
+                    questionBtn.setAttribute('aria-expanded', 'true');
+                    answer.setAttribute('aria-hidden', 'false');
+                    if (expandIcon) expandIcon.textContent = '⌃';
+                }
+            });
+
+            // transition 끝난 뒤, 원래 display가 none이었던 항목은 닫힐 때 다시 display:none으로 복원
+            answer.addEventListener('transitionend', function (e) {
+                if (e.propertyName !== 'max-height') return;
+                if (answer.style.maxHeight === '0px' && answer.dataset._wasDisplayNone === 'true') {
+                    answer.style.display = 'none';
+                }
+            });
+        });
+
+        // ===== postForm 안전한 처리 (postForm이 없는 경우 에러 방지) =====
+        const form = document.getElementById('postForm');
+        if (form) {
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const titleEl = document.getElementById('title');
+                const contentEl = document.getElementById('content');
+                const result = document.getElementById('result');
+
+                const title = titleEl ? titleEl.value : '';
+                const content = contentEl ? contentEl.value : '';
+
+                try {
+                    const response = await fetch('/api/posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ title, content })
+                    });
+
+                    if (response.ok) {
+                        if (result) result.innerText = '업로드 성공!';
+                        form.reset();
+                    } else {
+                        const err = await response.text();
+                        if (result) result.innerText = '실패: ' + err;
+                    }
+                } catch (err) {
+                    if (result) result.innerText = '실패: ' + err.message;
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

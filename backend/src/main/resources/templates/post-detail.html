@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.title}">게시물 상세</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: white;
+            border-bottom: 1px solid #eaeaea;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+            color: #1556F7;
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1556F7;
+            margin-bottom: 1rem;
+        }
+
+        .post-content {
+            line-height: 1.6;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            margin-bottom: 2rem;
+        }
+
+        a.back-link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            background-color: #1556F7;
+            color: white;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        a.back-link:hover {
+            background-color: #5C87F1;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>CNS</h1>
+</header>
+
+<main>
+    <div class="post-title" th:text="${post.title}">제목</div>
+    <div class="post-content" th:text="${post.content}">내용</div>
+    <a href="/posts" class="back-link">← 목록으로</a>
+</main>
+</body>
+</html>

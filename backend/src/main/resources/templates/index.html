@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNS - Care N Service</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img th:src="@{/images/cns.png}" alt="cns">
+            </div>
+            <nav class="nav">
+                <a th:href="@{/}" class="nav-item">
+                    <svg class="home-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </a>
+                <a th:href="@{/services}" class="nav-item">서비스</a>
+                <a th:href="@{/posts}" class="nav-item">문의</a>
+                <a th:href="@{/login}" class="nav-item">로그인</a>
+
+                
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="검색">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-title">
+                        <span class="title-line">
+                            <span class="title-letter">C</span>
+                            <span class="title-word">are</span>
+                        </span>
+                        <span class="title-line">
+                            <span class="title-letter">N</span>
+                        </span>
+                        <span class="title-line">
+                            <span class="title-letter">S</span>
+                            <span class="title-word">ervice</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="hero-description">
+                    <p class="hero-subtitle">당신의 시작을 가치있게,</p>
+                    <p class="hero-subtitle">입학원서접수사이트를 개발하는 CNS입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="about-title">
+                    <span class="cns-blue">CNS</span>의 인재상?
+                </h2>
+                <p class="about-description">
+                    CNS 인재상은 원활이 소통에 능하고 협업을 잘 하는 사람,<br>
+                    열정이 가득하여 배울 준비가 된 사람 그리고 신뢰하며<br>
+                    일을 맡길 수 있는 사람입니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <div class="skills-carousel">
+                <button class="carousel-btn prev-btn" id="prevBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                
+                <div class="skills-container">
+                    <div class="skill-card active">
+                        <div class="skill-header">
+                            <span class="skill-category">백엔드</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">java<br>spring boot<br>CRUD</h3>
+                            <div class="skill-details">
+                                <div class="skill-item">
+                                    <span class="skill-name">자바 기초 ~ 심화 활용, 자바 기초 교육</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">자바 객체 지향 ( 스프링부트를 이용한 백엔드서버 개발경험 )</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">자바 객체 활용 ( C#과의 유사 )</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-category">프론트엔드</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">• CSS<br>• js<br>• react</h3>
+                            <div class="skill-details">
+                                <div class="skill-item">
+                                    <span class="skill-name">CSS를 통한 웹 페이지 레이아웃 디자인과 스타일링 기능을 활용하여 직관적이고 사용자 친화적인 인터페이스 구현</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">JavaScript 사용하여 동적인 웹 페이지 구현과 사용자와의 상호작용을 통한 기능 구현</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">React를 활용한 컴포넌트 기반의 사용자 인터페이스 개발과 상태 관리를 통한 효율적인 웹 애플리케이션 구축</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-category">디자인</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">• figma1<br>• figma2</h3>
+                            <div class="skill-details">
+                                <div class="skill-item">
+                                    <span class="skill-name">피그마를 활용하여, 웹 디자인과 사용자 인터페이스 디자인 경험</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">디자인 시스템 구축과 프로토타입 제작을 통한 사용자 경험 최적화</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next-btn" id="nextBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="services-title">함께 성장해나가는 동아리, CNS입니다.</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            <path d="M9 7h6v2H9V7zm0 4h6v2H9v-2z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>스터디를 통한<br>전공 실력 향상</h3>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>서로를 향한<br>존중과 응원</h3>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v2h8v-2h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H4V4h16v10z"/>
+                            <path d="M6 6h2v2H6V6zm0 4h8v2H6v-2z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>멤버들과의<br>원활한 소통</h3>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2 17h20v2H2zm1.15-4.05L4 11.47l.85 1.48L3.3 14.4l1.55.85L4 16.73l.85 1.48L3.3 19.6l1.55.85L4 21.93l.85 1.48L6.4 22.56l.85 1.55L8.73 24l1.48-.85L11.69 24l1.48-.85L14.65 24l1.48-.85L17.61 24l1.48-.85L20.57 24l1.48-.85L23.53 24H24v-1.47l-.85-1.48L24 19.6l-.85-1.48L24 16.67l-.85-1.48L24 13.74l-.85-1.48L24 10.81l-.85-1.48L24 7.88l-.85-1.48L24 4.95l-.85-1.48L24 2H2v15.05z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>선후배간의<br>자유로운 분위기</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="footer-contact">연락처 : 010-0000-0000</p>
+                    <p class="footer-copyright">Copyright 2025. CNS Care N Service</p>
+                </div>
+                <div class="footer-logo">
+                    <img th:src="@{/images/cns.png}" alt="cns">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
